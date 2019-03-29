@@ -223,6 +223,12 @@ public class LocationPlugin implements MethodCallHandler, StreamHandler, PluginR
                     this.result.success(0);
                 }
                 break;
+            case REQUEST_CHECK_SETTINGS:
+                if (resultCode == Activity.RESULT_OK) {
+                    startRequestingLocation();
+                } else if(this.result != null) {
+                    result.success(null);
+                }
             default:
                 return false;
             }
